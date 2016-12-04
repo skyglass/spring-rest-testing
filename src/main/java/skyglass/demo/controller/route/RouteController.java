@@ -71,7 +71,7 @@ public class RouteController {
     
     @RequestMapping(method = RequestMethod.POST, path  = "/{routeId}/setStations")
     @PreAuthorize("hasAuthority('ADMIN')")
-    public ResponseEntity<Route> setUserRoles(@PathVariable Long routeId, @RequestBody StationsWrapper stationsWrapper)
+    public ResponseEntity<Route> setRouteStations(@PathVariable Long routeId, @RequestBody StationsWrapper stationsWrapper)
     throws Exception {
     	Route route = routeService.setStations(routeId, stationsWrapper.stationIds);
         return new ResponseEntity<Route>(route, HttpStatus.OK);
