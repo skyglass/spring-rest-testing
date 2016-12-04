@@ -1,6 +1,6 @@
 #Demo project for finding minimal route between two stations, based on Spring Boot, Spring REST, Spring Security, Spring Data JPA and REST Assured testing framework
 
-Project Description:
+#Project Description:
 
 1. Main Service API: src/main/java/skyglass.demo.service.route.impl.RouteServiceImpl
 2. Main REST API: src/main/java/skyglass.demo.controller.route.RouteController
@@ -9,7 +9,7 @@ Project Description:
 5. Test Config: src/test/java/skyglass.demo.config.TestConfig
 6. Base Integration Test: src/test/java/skyglass.demo.config.BaseIntegrationTest
 
-REST Service API:
+#REST Service API:
 
 1. RouteController.getAllRoutes - returns all routes
 2. RouteController.getRoute - returns route by id
