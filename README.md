@@ -10,6 +10,7 @@ Project Description:
 6. Base Integration Test: src/test/java/skyglass.demo.config.BaseIntegrationTest
 
 REST Service API:
+
 1. RouteController.getAllRoutes - returns all routes
 2. RouteController.getRoute - returns route by id
 3. RouteController.saveroute - saves new or updated route
@@ -18,9 +19,7 @@ REST Service API:
 6. RouteController.deleteRoute - deletes route by id
 7. RouteController.hasDirectRoute - returns true if there exists direct route between two given stations, and false otherwiise
 8. RouteController.getMinimalDirectRoute - returns minimal direct route between two given stations in the following format: "Route {name}: {startStation} -> {station2} -> ... -> {endStation}". If there are no direct routes, "No Direct Connections" message is returned.
-9. RouteController.getMinimalRoute - returns minimal route between two given stations, possibly indirect ones, in the following format:
-"Minimal Route: [Route {start}: {station1} -> ...] --> [Route{next}: {station1} -> ...] --> ... [Route{end}: {station1} -> ...}]"
-If there are no routes between given stations, "No Connections" message is returned.
+9. RouteController.getMinimalRoute - returns minimal route between two given stations, possibly indirect ones, in the following format: "Minimal Route: [Route {start}: {station1} -> ...] --> [Route{next}: {station1} -> ...] --> ... [Route{end}: {station1} -> ...}]". If there are no routes between given stations, "No Connections" message is returned.
 
 All these REST services are tested in RouteControllerTest and RoutePathControllerTest classes using REST-Assure Testing Framework and Spring REST test configuration. Test Routes, Stations and Route Graphs are created with src/test/resource/data.sql
 
