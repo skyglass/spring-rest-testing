@@ -1,4 +1,4 @@
-#Demo project for finding minimal route between two stations, based on Spring Boot, Spring REST, Spring Security, Spring Data JPA and REST Assured testing framework
+* Demo project for finding minimal route between two stations, based on Spring Boot, Spring REST, Spring Security, Spring Data JPA and REST Assured testing framework
 
 #Project Description:
 
@@ -24,5 +24,5 @@
 All these REST services are tested in RouteControllerTest and RoutePathControllerTest classes using REST-Assure Testing Framework and Spring REST test configuration. Test Routes, Stations and Route Graphs are created with src/test/resource/data.sql
 
 REST security is tested in SecurityTests class.
-Test users and their permissions are created with src/test/resource/data.sql
+Test users and their permissions are created in src/test/resource/data.sql
 
