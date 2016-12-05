@@ -29,6 +29,7 @@ Test users and their permissions are created in src/test/resource/data.sql
 #Minimal Route Algorithm:
 
 Minmial Route Calculation is based on the following assumptions:
+
 1. Direct Route between two given stations is always shorter than any indirect one (Straight Line Axiom)
 2. The length of the Route is a number of The Route Stations.
 2. Minimal Route is a Route, which has minimal length. 
