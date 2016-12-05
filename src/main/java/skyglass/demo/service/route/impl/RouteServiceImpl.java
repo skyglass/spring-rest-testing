@@ -137,25 +137,38 @@ public class RouteServiceImpl extends GenericServiceImpl<Route, Long, RouteData>
 				//already been there
 				continue;
 			}
-			RoutePath innerPath = currentPath.copy();
-			innerPath.addRoute(subRoute);
-			if (minPath != null && innerPath.getLength() >= minPath.getLength()) {
-				//stop search in this direction, because there is already a better way
-				continue;
-			}
-			RoutePath path = getMinimalRoute(innerPath, minPath, subRoute.getNextStation(), station2);
-			if (path == null) {
-				//dead end
-				continue;
-			}
-			if (minPath == null) {
-				minPath = path;
-			} else if (path.getLength() < minPath.getLength()) {
-				minPath = path;
-			}
+			int currentIndex = subRoute.getStartIndex();
+			do {
+				currentIndex = subRoute.getNextIndex(currentIndex);
+				SubRoute nextSubRoute = new SubRoute(
+						subRoute.getRoute(), subRoute.getStartIndex(), currentIndex);
+				RoutePath nextRoutePath = currentPath.copy();
+				nextRoutePath.addRoute(nextSubRoute);
+				minPath = findNextMinPath(nextRoutePath, minPath, nextSubRoute, station2, currentIndex);
+
+			} while (currentIndex != subRoute.getEndIndex());
 		}
 		return minPath;
 	}	
+	
+	private RoutePath findNextMinPath(RoutePath currentPath, RoutePath currentMinPath, 
+			SubRoute currentSubRoute, Station station2, int currentIndex) throws ServiceException {
+		if (currentMinPath != null && currentPath.getLength() >= currentMinPath.getLength()) {
+			//stop search in this direction, because there is already a better way
+			return currentMinPath;
+		}
+		
+		RoutePath path = getMinimalRoute(currentPath, 
+				currentMinPath, currentSubRoute.getStation(currentIndex), station2);
+		if (path == null) {
+			//dead end
+			return currentMinPath;
+		}
+		if (currentMinPath == null || path.getLength() < currentMinPath.getLength()) {
+			return path;
+		}	
+		return currentMinPath;
+	}
 
 	@Override
 	public List<SubRoute> getSubRoutes(Station station) throws ServiceException {

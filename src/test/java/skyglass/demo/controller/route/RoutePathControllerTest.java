@@ -92,6 +92,70 @@ public class RoutePathControllerTest extends BaseIntegrationTest{
     			result.path);     	
  
     }      
+    
+    @Test
+    public void testRoadToNarnia(){  	
+		TestRestTemplate template = new TestRestTemplate("admin", "admin");
+    	RoutePathWrapper result = template.getForEntity(ROUTE_RESOURCE_URL + "/minimalRoute/2/18", RoutePathWrapper.class).getBody();
+    	assertEquals(
+    			RoutePath.MINIMAL_ROUTE_PREFIX 
+    			+ "Route 1: (2 -> 3)" 
+    			+ RoutePath.MINIMAL_ROUTE_DELIMITER
+    			+ "Route 3: (3 -> 7)"
+    			+ RoutePath.MINIMAL_ROUTE_DELIMITER 
+    			+ "Route Trans Europa Express: (7 -> Bratislava -> Wien -> Berlin)"  
+    			+ RoutePath.MINIMAL_ROUTE_DELIMITER 
+    			+ "Route Through The Tunnel: (Berlin -> Cologne -> Brussels -> London)" 
+     			+ RoutePath.MINIMAL_ROUTE_DELIMITER 
+    			+ "Route Hogwarts Express: (London -> Middle-Earth)"   
+     			+ RoutePath.MINIMAL_ROUTE_DELIMITER 
+    			+ "Route Through The Wardrobe: (Middle-Earth -> Narnia)"      			
+    			+ RoutePath.MINIMAL_ROUTE_SUFFIX,
+    			result.path);     	
+ 
+    }  
+    
+    @Test
+    public void testRoadToMirrorLand(){  	
+		TestRestTemplate template = new TestRestTemplate("admin", "admin");
+    	RoutePathWrapper result = template.getForEntity(ROUTE_RESOURCE_URL + "/minimalRoute/2/17", RoutePathWrapper.class).getBody();
+    	assertEquals(
+    			RoutePath.MINIMAL_ROUTE_PREFIX 
+    			+ "Route 1: (2 -> 3)" 
+    			+ RoutePath.MINIMAL_ROUTE_DELIMITER
+    			+ "Route 3: (3 -> 7)"
+    			+ RoutePath.MINIMAL_ROUTE_DELIMITER 
+    			+ "Route Trans Europa Express: (7 -> Bratislava -> Wien -> Berlin)"  
+    			+ RoutePath.MINIMAL_ROUTE_DELIMITER 
+    			+ "Route Through The Tunnel: (Berlin -> Cologne -> Brussels -> London)" 
+     			+ RoutePath.MINIMAL_ROUTE_DELIMITER 
+    			+ "Route Hogwarts Express: (London -> Middle-Earth -> Hogwarts)"   
+     			+ RoutePath.MINIMAL_ROUTE_DELIMITER 
+    			+ "Route Through The Looking Glass: (Hogwarts -> Mirror Land)"      			
+    			+ RoutePath.MINIMAL_ROUTE_SUFFIX,
+    			result.path); 
+    }        
+    
+    @Test
+    public void testRoadToMiddleEarth(){  	
+		TestRestTemplate template = new TestRestTemplate("admin", "admin");
+    	RoutePathWrapper result = template.getForEntity(ROUTE_RESOURCE_URL + "/minimalRoute/2/15", RoutePathWrapper.class).getBody();
+    	assertEquals(
+    			RoutePath.MINIMAL_ROUTE_PREFIX 
+    			+ "Route 1: (2 -> 3)" 
+    			+ RoutePath.MINIMAL_ROUTE_DELIMITER
+    			+ "Route 3: (3 -> 7)"
+    			+ RoutePath.MINIMAL_ROUTE_DELIMITER 
+    			+ "Route Trans Europa Express: (7 -> Bratislava -> Wien -> Berlin)"  
+    			+ RoutePath.MINIMAL_ROUTE_DELIMITER 
+    			+ "Route Through The Tunnel: (Berlin -> Cologne -> Brussels -> London)" 
+     			+ RoutePath.MINIMAL_ROUTE_DELIMITER 
+    			+ "Route Hogwarts Express: (London -> Middle-Earth)" 			
+    			+ RoutePath.MINIMAL_ROUTE_SUFFIX,
+    			result.path);  
+    }  
+
+  
 
 }
 

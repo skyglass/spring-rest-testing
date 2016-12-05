@@ -22,7 +22,7 @@ public class RouteDataTest extends BaseIntegrationTest{
     @Test
     public void testFindAll() throws Exception {
         List<Route> routes = routeData.findAll();
-        assertEquals(5, routes.size());
+        assertEquals(10, routes.size());
     }
 
     @Test

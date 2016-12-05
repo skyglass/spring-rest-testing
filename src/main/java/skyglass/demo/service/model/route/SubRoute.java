@@ -40,12 +40,16 @@ public class SubRoute {
 		}
 	}	
 	
-	public Station getNextStation() {
-		if (startIndex < endIndex) {
-			return route.getStations().get(startIndex + 1);
-		} 
-		return route.getStations().get(startIndex - 1);
+	public Station getStation(int index) {
+		return route.getStations().get(index);
 	}
+	
+	public int getNextIndex(int currentIndex) {
+		if (startIndex < endIndex) {
+			return currentIndex + 1;
+		} 
+		return currentIndex - 1;
+	}	
 	
 	public int getLength() {
 		return Math.abs(endIndex - startIndex);

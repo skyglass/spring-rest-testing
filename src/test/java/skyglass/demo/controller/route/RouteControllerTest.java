@@ -21,7 +21,7 @@ public class RouteControllerTest extends BaseIntegrationTest{
     public void testGetAllRoutes(){
 		TestRestTemplate template = new TestRestTemplate("admin", "admin");
     	List<Route> routeList = Arrays.asList(template.getForEntity(ROUTE_RESOURCE_URL, Route[].class).getBody());
-    	assertEquals(5, (routeList).size());
+    	assertEquals(10, (routeList).size());
     }
 
     @Test

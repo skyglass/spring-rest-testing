@@ -22,7 +22,7 @@ public class RouteServiceTest extends BaseIntegrationTest {
     @Test
     public void testGetAllRoutes(){
     	Iterable<Route> routeList = routeService.findAll();
-    	assertEquals(5, ((Collection<Route>)routeList).size());
+    	assertEquals(10, ((Collection<Route>)routeList).size());
     }
 
     @Test
